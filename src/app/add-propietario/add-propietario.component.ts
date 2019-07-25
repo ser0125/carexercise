@@ -20,14 +20,14 @@ export class AddPropietarioComponent implements OnInit {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      const id = params['id'];
-      if (id) {
-        this.propietarioService.get(id).subscribe((owner: any) => {
+      const dni = params['dni'];
+      if (dni) {
+        this.propietarioService.get(dni).subscribe((owner: any) => {
           if (owner) {
             this.owner = owner;
             this.owner.href = owner._links.self.href;
           } else {
-            console.log(`Owner with id '${id}' not found, returning to list`);
+            console.log(`Owner with dni '${dni}' not found, returning to list`);
             this.gotoList();
           }
         });
@@ -36,7 +36,7 @@ export class AddPropietarioComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/car-list']);
+    this.router.navigate(['/propietarios-list']);
   }
 
   ngOnDestroy() {

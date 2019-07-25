@@ -9,6 +9,13 @@
           <input matInput placeholder="Car Name" [(ngModel)]="car.name"
                  required name="name" #name>
         </mat-form-field>
+        <mat-form-field>
+         <select name="OS">
+              <option *ngFor="let owner of owners" [value]="owner.dni" [(ngModel)]="car.ownerDni"
+               required name="ownerDni" #{{owner.dni}}>{{owner.name}}</option> 
+            
+         </select>
+        </mat-form-field>
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button color="primary" type="submit"
