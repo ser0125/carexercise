@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-card-title>Owner List</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+         <mat-list-item *ngFor="let owner of owners">
+         <h1 mat-line>
+            <a mat-button [routerLink]="['/pro-edit', owner.dni]">{{owner.name}}</a>
+          </h1>
+          <h5 mat-line>
+           --->{{owner.profession}}
+          </h5>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <button mat-fab color="primary" [routerLink]="['/car-list']">Car List</button>
+    <button mat-fab color="primary" [routerLink]="['/add-pro']">Add Propietario</button>
+  </mat-card>
